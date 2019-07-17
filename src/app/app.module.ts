@@ -6,16 +6,14 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { MyCustomModuleModule } from './my-custom-module/my-custom-module.module';
 import { DefaultComponent } from './default/default.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { AboutComponent } from './about/about.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MenuRoutingModule } from './menu-routing/menu-routing.module';
 
 const appRoutes:Routes = [
   { path: '', component: DefaultComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'home', loadChildren: './menu-routing.module#AppModule' },
+  { path: 'contact', loadChildren: './menu-routing.module#AppModule' },
+  { path: 'about', loadChildren: './menu-routing.module#AppModule' }
 ]
 
 @NgModule({
@@ -25,7 +23,7 @@ const appRoutes:Routes = [
     MyCustomModuleModule, 
     RouterModule.forRoot(appRoutes, { enableTracing : true })
     ],
-  declarations: [ AppComponent, HelloComponent, DefaultComponent, HomeComponent, ContactComponent, AboutComponent ],
+  declarations: [ AppComponent, HelloComponent, DefaultComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
