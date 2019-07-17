@@ -6,5 +6,6 @@ div {
 span {
   background-color: #B1CED2;
   padding: 10px 10px 10px 10px;
+  border-radius: 3px;
   color: white;
 }
